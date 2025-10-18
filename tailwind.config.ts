@@ -19,11 +19,11 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["Gilroy", "sans-serif"],
       },
       fontWeight: {
         regular: "400",
-        bold: "700",
+        bold: "600",
         extrabold: "800",
       },
       colors: {

@@ -9,41 +9,51 @@ const Benefits = () => {
       title: "Save Time",
       value: "40%",
       description: "Faster project completion",
-      detail: "Streamlined workflows and automation eliminate repetitive tasks, allowing your team to focus on innovation."
+      detail:
+        "Streamlined workflows and automation eliminate repetitive tasks, allowing your team to focus on innovation.",
     },
     {
       icon: TrendingDown,
       title: "Reduce Errors",
       value: "85%",
-      description: "Fewer costly mistakes", 
-      detail: "Automated checks and validation prevent errors before they become expensive problems in production."
+      description: "Fewer costly mistakes",
+      detail:
+        "Automated checks and validation prevent errors before they become expensive problems in production.",
     },
     {
       icon: Users,
       title: "Improve Collaboration",
       value: "3x",
       description: "Better team coordination",
-      detail: "Real-time updates and centralized communication keep everyone aligned and productive."
+      detail:
+        "Real-time updates and centralized communication keep everyone aligned and productive.",
     },
     {
       icon: Zap,
       title: "Ensure Compliance",
       value: "100%",
       description: "Standards adherence",
-      detail: "Built-in templates and automated reporting ensure you never miss compliance requirements."
-    }
+      detail:
+        "Built-in templates and automated reporting ensure you never miss compliance requirements.",
+    },
   ];
 
   return (
-    <section className="py-24">
+    <section
+      id="benefits"
+      className="py-24 relative z-30 bg-background min-h-screen"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 sm:text-5xl">
-            Measurable <span className="bg-gradient-primary bg-clip-text text-transparent">Results</span>
+            Measurable{" "}
+            <span className="bg-gradient-primary bg-clip-text text-transparent">
+              Results
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Don't just take our word for it. Our customers see real, measurable improvements 
-            in their hardware development processes from day one.
+            Don't just take our word for it. Our customers see real, measurable
+            improvements in their hardware development processes from day one.
           </p>
         </div>
 
@@ -51,7 +61,7 @@ const Benefits = () => {
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon;
             return (
-              <Card 
+              <Card
                 key={index}
                 className="bg-card/50 backdrop-blur border-border/50 shadow-card hover:shadow-glow transition-all duration-300 group text-center"
               >
@@ -60,15 +70,17 @@ const Benefits = () => {
                     <div className="h-16 w-16 rounded-2xl bg-gradient-primary/20 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
                       <IconComponent className="h-8 w-8 text-primary" />
                     </div>
-                    
+
                     <div className="space-y-2">
                       <div className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
                         {benefit.value}
                       </div>
                       <h3 className="text-xl font-semibold">{benefit.title}</h3>
-                      <p className="text-primary font-medium">{benefit.description}</p>
+                      <p className="text-primary font-medium">
+                        {benefit.description}
+                      </p>
                     </div>
-                    
+
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {benefit.detail}
                     </p>
@@ -87,18 +99,18 @@ const Benefits = () => {
                 Ready to Transform Your Hardware Development Process?
               </h3>
               <p className="text-xl text-muted-foreground">
-                Join thousands of hardware teams who have already streamlined their workflows 
-                and accelerated their time to market.
+                Join thousands of hardware teams who have already streamlined
+                their workflows and accelerated their time to market.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <Button 
+                <Button
                   size="lg"
                   className="h-14 px-8 text-lg font-semibold bg-gradient-primary hover:shadow-glow transition-all duration-300 hover:scale-105"
                 >
                   Start Your Free Trial
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button 
+                <Button
                   variant="outline"
                   size="lg"
                   className="h-14 px-8 text-lg font-semibold border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
