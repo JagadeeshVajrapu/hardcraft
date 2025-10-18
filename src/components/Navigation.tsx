@@ -71,7 +71,7 @@ const Navigation = () => {
               Sign In
             </Button>
             <Button className="bg-gradient-primary border rounded-full hover:shadow-glow transition-all duration-300">
-              Start Free Trial
+              Get Started
             </Button>
           </div>
 
