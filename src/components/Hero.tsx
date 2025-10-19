@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/hero-hardware.jpg";
 import toolImage from "@/assets/hero-image2.png";
 
@@ -76,16 +75,14 @@ const Hero = () => {
               size="lg"
               className="h-12  rounded-full px-6 text-lg font-semibold bg-gradient-primary hover:shadow-glow transition-all duration-300 hover:scale-105"
             >
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
+              Join Waitlist
             </Button>
             <Button
               variant="outline"
               size="lg"
               className="h-12  rounded-full  px-6 text-lg font-semibold border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
             >
-              <Play className="mr-2 h-5 w-5" />
-              Watch Demo
+              Schedule a Demo
             </Button>
           </div>
 

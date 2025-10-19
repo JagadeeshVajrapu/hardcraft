@@ -68,10 +68,10 @@ const Navigation = () => {
               variant="ghost"
               className="text-muted-foreground border rounded-full hover:text-foreground"
             >
-              Sign In
+              Demo
             </Button>
             <Button className="bg-gradient-primary border rounded-full hover:shadow-glow transition-all duration-300">
-              Get Started
+              Join Waitlist
             </Button>
           </div>
 
