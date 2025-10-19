@@ -4,6 +4,7 @@ import ProblemSolution from "@/components/ProblemSolution";
 import Features from "@/components/Features";
 import Industries from "@/components/Industries";
 import Benefits from "@/components/Benefits";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <Features />
       <Industries />
       <Benefits />
+      <Footer />
     </div>
   );
 };
