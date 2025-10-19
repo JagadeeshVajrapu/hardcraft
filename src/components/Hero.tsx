@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/hero-hardware.jpg";
-import toolImage from "@/assets/hero-image1.png";
+import toolImage from "@/assets/hero-image2.png";
 
 const Hero = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
