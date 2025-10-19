@@ -25,11 +25,11 @@ const Hero = () => {
     <section className="relative h-[1000px] flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
+        {/* <img
           src={heroImage}
           alt="Modern hardware development workspace"
           className="w-full h-full object-cover opacity-20"
-        />
+        /> */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/70 to-background"></div>
       </div>
 
