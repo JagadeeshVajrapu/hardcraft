@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import WaitlistDialog, { WaitlistFormData } from "./WaitlistDialog";
+import whiteLogo from "@/assets/White_icon_png.png";
 
 const Navigation = () => {
   const [isAtTop, setIsAtTop] = useState(true);
@@ -37,9 +38,11 @@ const Navigation = () => {
         <div className="flex items-center h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="h-10 w-10 rounded-full bg-gradient-primary flex items-center justify-center">
-              <span className="text-white font-bold text-sm">𝔒</span>
-            </div>
+            <img
+              src={whiteLogo}
+              alt="OpenPlan Logo"
+              className="h-8 object-contain"
+            />
             <span className="text-2xl font-regular">OpenPlan</span>
           </div>
 

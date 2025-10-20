@@ -2,6 +2,7 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Twitter, Globe } from "lucide-react";
+import whiteLogo from "@/assets/White_icon_png.png";
 
 const Footer = () => {
   return (
@@ -11,9 +12,11 @@ const Footer = () => {
           {/* Brand + Mission */}
           <div className="md:col-span-2 space-y-6">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full bg-gradient-primary flex items-center justify-center">
-                <span className="text-white font-bold text-sm">𝔒</span>
-              </div>
+              <img
+                src={whiteLogo}
+                alt="OpenPlan Logo"
+                className="h-8 object-contain"
+              />
               <span className="text-2xl font-semibold">OpenPlan</span>
             </div>
             <p className="text-muted-foreground max-w-md">
