@@ -49,8 +49,7 @@ const AnalyticsDashboard = () => {
       features: [
         {
           icon: FileText,
-          image:
-            "https://amplitude.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fl5rq9j6r%2Fproduction%2Ff3bd9da3bb752f8333eeaf876de7be74cf670a40-2160x1760.png&w=3840&q=75",
+          image: "/src/assets/featureImages/feature1.png",
           title: "Data Governance",
           description:
             "Controls and guardrails to keep your data clean, accurate, and organized, anywhere in the world.",
@@ -58,8 +57,7 @@ const AnalyticsDashboard = () => {
         },
         {
           icon: Zap,
-          image:
-            "https://amplitude.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fl5rq9j6r%2Fproduction%2F8d0e5d328fbd0e3b1d81b452e7a4fff7124e0432-2160x1760.png&w=3840&q=75",
+          image: "/src/assets/featureImages/feature2.png",
           title: "Integrations",
           description:
             "Seamlessly connect with your existing tools and workflows for unified data management.",
@@ -67,8 +65,7 @@ const AnalyticsDashboard = () => {
         },
         {
           icon: Shield,
-          image:
-            "https://amplitude.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fl5rq9j6r%2Fproduction%2F7b8122ed7701613edf61659bb863aafb05877401-2160x1760.png&w=3840&q=75",
+          image: "/src/assets/featureImages/feature3.png",
           title: "Security & Compliance",
           description:
             "Enterprise-grade security with built-in compliance for industry standards and regulations.",
@@ -85,8 +82,7 @@ const AnalyticsDashboard = () => {
       features: [
         {
           icon: Target,
-          image:
-            "https://amplitude.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fl5rq9j6r%2Fproduction%2Fc04fd48089f906e5548c815d310072d4364a033f-2160x1760.png&w=3840&q=75",
+          image: "/src/assets/featureImages/feature4.png",
           title: "Feature Experimentation",
           description:
             "Flag targeted features and put every release to the test to prove your innovations work.",
@@ -94,8 +90,7 @@ const AnalyticsDashboard = () => {
         },
         {
           icon: BarChart3,
-          image:
-            "https://amplitude.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fl5rq9j6r%2Fproduction%2F5da0e9fc5809db535df41c32e3753805a6f000e0-2160x1760.png&w=3840&q=75",
+          image: "/src/assets/featureImages/feature5.png",
           title: "Web Experimentation",
           description:
             "A/B test your web experiences and optimize conversion rates with data-driven insights.",
@@ -103,8 +98,7 @@ const AnalyticsDashboard = () => {
         },
         {
           icon: Users,
-          image:
-            "https://amplitude.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fl5rq9j6r%2Fproduction%2F0a0b7283dd2211e616920bb1ad7cc1eb25b8ce75-2160x1760.png&w=3840&q=75",
+          image: "/src/assets/featureImages/feature6.png",
           title: "Guides and Surveys",
           description:
             "Collect user feedback and guide users through optimal experiences with interactive surveys.",
@@ -121,8 +115,7 @@ const AnalyticsDashboard = () => {
       features: [
         {
           icon: BarChart3,
-          image:
-            "https://amplitude.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fl5rq9j6r%2Fproduction%2Fba7b0ea2a35bc8c892b2a81d7f2a71148a535c41-2160x1760.png&w=3840&q=75",
+          image: "/src/assets/featureImages/feature7.png",
           title: "Product Analytics",
           description:
             "Dig deeper into every click and metric to make smarter decisions with confidence.",
@@ -130,8 +123,7 @@ const AnalyticsDashboard = () => {
         },
         {
           icon: Globe,
-          image:
-            "https://amplitude.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fl5rq9j6r%2Fproduction%2F96ec6dee024625597e5e9713009ab7b1a0d9c78c-2160x1760.png&w=3840&q=75",
+          image: "/src/assets/featureImages/feature8.png",
           title: "Web Analytics",
           description:
             "Comprehensive web analytics to understand user behavior and optimize your digital presence.",
@@ -139,8 +131,7 @@ const AnalyticsDashboard = () => {
         },
         {
           icon: Activity,
-          image:
-            "https://amplitude.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fl5rq9j6r%2Fproduction%2Ff3bd9da3bb752f8333eeaf876de7be74cf670a40-2160x1760.png&w=3840&q=75",
+          image: "/src/assets/featureImages/feature8.png",
           title: "Session Replay",
           description:
             "Watch user sessions to understand exactly how users interact with your product.",
