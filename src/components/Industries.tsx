@@ -4,36 +4,36 @@ import { Car, Plane, Pill, Video } from "lucide-react";
 const Industries = () => {
   const industries = [
     {
+      icon: Pill,
+      name: "Meditech",
+      description:
+        "Accelerate compliant medical device and healthtech development with end-to-end traceability.",
+      color: "industry-pharma",
+      stats: "200+ meditech teams",
+    },
+    {
+      icon: Plane,
+      name: "Drone",
+      description:
+        "Plan, prototype, and certify UAV systems with robust workflows across hardware and firmware.",
+      color: "industry-aerospace",
+      stats: "100+ drone programs",
+    },
+    {
       icon: Car,
       name: "Automotive",
       description:
-        "From concept cars to production vehicles, manage complex automotive development with precision.",
+        "From concept to production, orchestrate complex vehicle programs with precision and quality.",
       color: "industry-auto",
       stats: "500+ automotive teams",
     },
     {
-      icon: Plane,
-      name: "Aerospace",
-      description:
-        "Navigate strict regulations and complex supply chains in aerospace and defense projects.",
-      color: "industry-aerospace",
-      stats: "50+ aerospace companies",
-    },
-    {
-      icon: Pill,
-      name: "Pharmaceuticals",
-      description:
-        "Maintain compliance and track medical device development with rigorous documentation.",
-      color: "industry-pharma",
-      stats: "200+ pharma teams",
-    },
-    {
       icon: Video,
-      name: "Media & Technology",
+      name: "Consumer Electronics",
       description:
-        "Rapid prototyping and iteration for consumer electronics and media hardware products.",
+        "Ship reliable consumer devices faster with coordinated design, firmware, and manufacturing.",
       color: "industry-media",
-      stats: "300+ tech companies",
+      stats: "300+ electronics companies",
     },
   ];
 
@@ -44,13 +44,12 @@ const Industries = () => {
           <h2 className="text-4xl font-bold mb-4 sm:text-5xl">
             Built for{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Every Industry
+              Hardware Teams
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Whether you're building cars, spacecraft, medical devices, or
-            consumer electronics, our platform adapts to your industry's unique
-            requirements and standards.
+            Purpose-built workflows to plan, build, and ship reliable products
+            faster.
           </p>
         </div>
 
