@@ -1,10 +1,16 @@
-import React from "react";
-import { Input } from "@/components/ui/input";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Twitter, Globe } from "lucide-react";
 import whiteLogo from "@/assets/White_icon_png.png";
+import WaitlistDialog, { WaitlistFormData } from "./WaitlistDialog";
 
 const Footer = () => {
+  const [isWaitlistDialogOpen, setIsWaitlistDialogOpen] = useState(false);
+
+  const handleWaitlistSubmit = async (formData: WaitlistFormData) => {
+    console.log("Waitlist form submitted from Footer:", formData);
+  };
+
   return (
     <footer className="w-full bg-background border-t border-border/50">
       <div className="container mx-auto px-4 py-16">
@@ -91,7 +97,7 @@ const Footer = () => {
             </h4>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
               <li>
-                <a className="hover:text-foreground" href="#about">
+                <a className="hover:text-foreground" href="/about">
                   About
                 </a>
               </li>
@@ -106,7 +112,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a className="hover:text-foreground" href="#">
+                <a className="hover:text-foreground" href="/contact">
                   Contact
                 </a>
               </li>
@@ -143,38 +149,33 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Newsletter */}
+        {/* Waitlist CTA */}
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 items-center rounded-xl border border-border/60 bg-card/40 p-6">
           <div className="md:col-span-2">
-            <h5 className="text-base font-semibold">
-              Subscribe for product updates
-            </h5>
+            <h5 className="text-base font-semibold">Join our waitlist</h5>
             <p className="mt-1 text-sm text-muted-foreground">
-              Join our newsletter. We send the good stuff—no spam, unsubscribe
+              Be the first to get access when we launch. No spam, unsubscribe
               anytime.
             </p>
           </div>
-          <form className="flex gap-3">
-            <div className="flex-1">
-              <label htmlFor="newsletter-email" className="sr-only">
-                Work email
-              </label>
-              <Input
-                id="newsletter-email"
-                type="email"
-                placeholder="Work email"
-                className="h-11 rounded-lg"
-              />
-            </div>
+          <div className="flex gap-3 justify-start md:justify-end">
             <Button
               className="h-11 rounded-lg bg-gradient-primary"
               type="button"
+              onClick={() => setIsWaitlistDialogOpen(true)}
             >
-              Subscribe
+              Join Waitlist
             </Button>
-          </form>
+          </div>
         </div>
       </div>
+
+      {/* Waitlist Dialog */}
+      <WaitlistDialog
+        isOpen={isWaitlistDialogOpen}
+        onClose={() => setIsWaitlistDialogOpen(false)}
+        onSubmit={handleWaitlistSubmit}
+      />
 
       <div className="border-t border-border/50">
         <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row gap-4 items-center justify-between">
