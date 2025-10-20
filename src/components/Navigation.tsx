@@ -110,6 +110,7 @@ const Navigation = () => {
               <Button
                 variant="ghost"
                 className="text-muted-foreground border rounded-full hover:text-foreground"
+                onClick={() => navigate("/contact")}
               >
                 Demo
               </Button>
@@ -188,7 +189,10 @@ const Navigation = () => {
               <Button
                 variant="ghost"
                 className="text-muted-foreground border rounded-full hover:text-foreground"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  navigate("/contact");
+                }}
               >
                 Demo
               </Button>

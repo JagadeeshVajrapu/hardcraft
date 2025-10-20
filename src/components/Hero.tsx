@@ -3,8 +3,10 @@ import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-hardware.jpg";
 import toolImage from "@/assets/hero-image2.png";
 import WaitlistDialog, { WaitlistFormData } from "./WaitlistDialog";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [isWaitlistDialogOpen, setIsWaitlistDialogOpen] = useState(false);
 
@@ -99,6 +101,7 @@ const Hero = () => {
               variant="outline"
               size="lg"
               className="h-12  rounded-full  px-6 text-lg font-semibold border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+              onClick={() => navigate("/contact")}
             >
               Schedule a Demo
             </Button>

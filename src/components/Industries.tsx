@@ -1,7 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Car, Plane, Pill, Video } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Industries = () => {
+  const navigate = useNavigate();
+
   const industries = [
     {
       icon: Pill,
@@ -102,7 +105,10 @@ const Industries = () => {
         <div className="text-center mt-12">
           <p className="text-muted-foreground">
             Don't see your industry?{" "}
-            <span className="text-primary underline cursor-pointer hover:text-primary-glow">
+            <span
+              className="text-primary underline cursor-pointer hover:text-primary-glow"
+              onClick={() => navigate("/contact")}
+            >
               Contact us
             </span>{" "}
             to learn how we can customize our platform for your specific needs.

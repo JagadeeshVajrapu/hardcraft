@@ -3,8 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Clock, TrendingDown, Users, Zap, ArrowRight } from "lucide-react";
 import WaitlistDialog from "@/components/WaitlistDialog";
+import { useNavigate } from "react-router-dom";
 
 const Benefits = () => {
+  const navigate = useNavigate();
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   const benefits = [
     {
@@ -118,6 +120,7 @@ const Benefits = () => {
                   variant="outline"
                   size="lg"
                   className="h-14 px-8 text-lg font-semibold border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                  onClick={() => navigate("/contact")}
                 >
                   Schedule a Demo
                 </Button>
