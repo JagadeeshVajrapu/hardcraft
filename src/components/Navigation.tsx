@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import WaitlistDialog, { WaitlistFormData } from "./WaitlistDialog";
 
 const Navigation = () => {
   const [isAtTop, setIsAtTop] = useState(true);
+  const [isWaitlistDialogOpen, setIsWaitlistDialogOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +16,13 @@ const Navigation = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleWaitlistSubmit = async (formData: WaitlistFormData) => {
+    // Handle form submission here
+    console.log("Waitlist form submitted from Navigation:", formData);
+    // You can add API call here to submit the form data
+    // Example: await submitWaitlistForm(formData);
+  };
 
   return (
     <nav
@@ -70,7 +79,10 @@ const Navigation = () => {
             >
               Demo
             </Button>
-            <Button className="bg-gradient-primary border rounded-full hover:shadow-glow transition-all duration-300">
+            <Button
+              className="bg-gradient-primary border rounded-full hover:shadow-glow transition-all duration-300"
+              onClick={() => setIsWaitlistDialogOpen(true)}
+            >
               Join Waitlist
             </Button>
           </div>
@@ -81,6 +93,13 @@ const Navigation = () => {
           </Button>
         </div>
       </div>
+
+      {/* Waitlist Dialog */}
+      <WaitlistDialog
+        isOpen={isWaitlistDialogOpen}
+        onClose={() => setIsWaitlistDialogOpen(false)}
+        onSubmit={handleWaitlistSubmit}
+      />
     </nav>
   );
 };

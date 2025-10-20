@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-hardware.jpg";
 import toolImage from "@/assets/hero-image2.png";
+import WaitlistDialog, { WaitlistFormData } from "./WaitlistDialog";
 
 const Hero = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [isWaitlistDialogOpen, setIsWaitlistDialogOpen] = useState(false);
 
   const rotatingTexts = [
     "Made Simple",
@@ -20,6 +22,13 @@ const Hero = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const handleWaitlistSubmit = async (formData: WaitlistFormData) => {
+    // Handle form submission here
+    console.log("Waitlist form submitted:", formData);
+    // You can add API call here to submit the form data
+    // Example: await submitWaitlistForm(formData);
+  };
 
   return (
     <section className="relative h-auto flex items-center justify-center overflow-hidden bg-gradient-hero">
@@ -74,6 +83,7 @@ const Hero = () => {
             <Button
               size="lg"
               className="h-12  rounded-full px-6 text-lg font-semibold bg-gradient-primary hover:shadow-glow transition-all duration-300 hover:scale-105"
+              onClick={() => setIsWaitlistDialogOpen(true)}
             >
               Join Waitlist
             </Button>
@@ -95,6 +105,13 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Waitlist Dialog */}
+      <WaitlistDialog
+        isOpen={isWaitlistDialogOpen}
+        onClose={() => setIsWaitlistDialogOpen(false)}
+        onSubmit={handleWaitlistSubmit}
+      />
     </section>
   );
 };
