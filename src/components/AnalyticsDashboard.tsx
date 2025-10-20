@@ -24,6 +24,16 @@ import {
   ChevronRight,
 } from "lucide-react";
 
+// Import feature images
+import feature1 from "@/assets/featureImages/feature1.png";
+import feature2 from "@/assets/featureImages/feature2.png";
+import feature3 from "@/assets/featureImages/feature3.png";
+import feature4 from "@/assets/featureImages/feature4.png";
+import feature5 from "@/assets/featureImages/feature5.png";
+import feature6 from "@/assets/featureImages/feature6.png";
+import feature7 from "@/assets/featureImages/feature7.png";
+import feature8 from "@/assets/featureImages/feature8.png";
+
 const AnalyticsDashboard = () => {
   const [expandedFeature, setExpandedFeature] = useState<{
     [section: number]: number;
@@ -49,7 +59,7 @@ const AnalyticsDashboard = () => {
       features: [
         {
           icon: FileText,
-          image: "/src/assets/featureImages/feature1.png",
+          image: feature1,
           title: "Data Governance",
           description:
             "Controls and guardrails to keep your data clean, accurate, and organized, anywhere in the world.",
@@ -57,7 +67,7 @@ const AnalyticsDashboard = () => {
         },
         {
           icon: Zap,
-          image: "/src/assets/featureImages/feature2.png",
+          image: feature2,
           title: "Integrations",
           description:
             "Seamlessly connect with your existing tools and workflows for unified data management.",
@@ -65,7 +75,7 @@ const AnalyticsDashboard = () => {
         },
         {
           icon: Shield,
-          image: "/src/assets/featureImages/feature3.png",
+          image: feature3,
           title: "Security & Compliance",
           description:
             "Enterprise-grade security with built-in compliance for industry standards and regulations.",
@@ -82,7 +92,7 @@ const AnalyticsDashboard = () => {
       features: [
         {
           icon: Target,
-          image: "/src/assets/featureImages/feature4.png",
+          image: feature4,
           title: "Feature Experimentation",
           description:
             "Flag targeted features and put every release to the test to prove your innovations work.",
@@ -90,7 +100,7 @@ const AnalyticsDashboard = () => {
         },
         {
           icon: BarChart3,
-          image: "/src/assets/featureImages/feature5.png",
+          image: feature5,
           title: "Web Experimentation",
           description:
             "A/B test your web experiences and optimize conversion rates with data-driven insights.",
@@ -98,7 +108,7 @@ const AnalyticsDashboard = () => {
         },
         {
           icon: Users,
-          image: "/src/assets/featureImages/feature6.png",
+          image: feature6,
           title: "Guides and Surveys",
           description:
             "Collect user feedback and guide users through optimal experiences with interactive surveys.",
@@ -115,7 +125,7 @@ const AnalyticsDashboard = () => {
       features: [
         {
           icon: BarChart3,
-          image: "/src/assets/featureImages/feature7.png",
+          image: feature7,
           title: "Product Analytics",
           description:
             "Dig deeper into every click and metric to make smarter decisions with confidence.",
@@ -123,7 +133,7 @@ const AnalyticsDashboard = () => {
         },
         {
           icon: Globe,
-          image: "/src/assets/featureImages/feature8.png",
+          image: feature8,
           title: "Web Analytics",
           description:
             "Comprehensive web analytics to understand user behavior and optimize your digital presence.",
@@ -131,7 +141,7 @@ const AnalyticsDashboard = () => {
         },
         {
           icon: Activity,
-          image: "/src/assets/featureImages/feature8.png",
+          image: feature8,
           title: "Session Replay",
           description:
             "Watch user sessions to understand exactly how users interact with your product.",
