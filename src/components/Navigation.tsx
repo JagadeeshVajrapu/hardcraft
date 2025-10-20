@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import WaitlistDialog, { WaitlistFormData } from "./WaitlistDialog";
 import whiteLogo from "@/assets/White_icon_png.png";
 
 const Navigation = () => {
+  const navigate = useNavigate();
   const [isAtTop, setIsAtTop] = useState(true);
   const [isWaitlistDialogOpen, setIsWaitlistDialogOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -63,7 +65,10 @@ const Navigation = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center h-16">
             {/* Logo */}
-            <div className="flex items-center gap-2">
+            <div
+              className="flex items-center gap-2 cursor-pointer"
+              onClick={() => navigate("/")}
+            >
               <img
                 src={whiteLogo}
                 alt="OpenPlan Logo"
