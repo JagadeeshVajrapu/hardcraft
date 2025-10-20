@@ -123,7 +123,11 @@ const Benefits = () => {
                 </Button>
               </div>
               <p className="text-sm text-muted-foreground">
-                No credit card required • 14-day free trial • Setup in minutes
+                Early adopters get{" "}
+                <span className="font-bold text-primary">
+                  6 months free access
+                </span>{" "}
+                — limited spots. Join the waitlist now.
               </p>
             </div>
           </CardContent>
