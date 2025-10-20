@@ -15,6 +15,31 @@ const Hero = () => {
     "Compliance",
   ];
 
+  const RotatingText: React.FC = () => (
+    <div className="relative h-[90px] overflow-hidden">
+      <div
+        className="flex flex-col transition-transform duration-500 ease-in-out"
+        style={{
+          transform: `translateY(-${currentTextIndex * 80}px)`,
+        }}
+      >
+        {/* Original texts */}
+        {rotatingTexts.map((text, index) => (
+          <div
+            key={index}
+            className="h-20 flex items-center justify-center text-foreground"
+          >
+            {text}
+          </div>
+        ))}
+        {/* Duplicate first text for seamless loop */}
+        <div className="h-20 flex items-center justify-center text-foreground">
+          {rotatingTexts[0]}
+        </div>
+      </div>
+    </div>
+  );
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTextIndex((prev) => (prev + 1) % rotatingTexts.length);
@@ -46,33 +71,16 @@ const Hero = () => {
       <div className="container relative z-10 mx-auto mt-16 px-4 text-center">
         <div className="mx-auto max-w-7xl mt-24 space-y-8">
           <div className="space-y-4">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
+            <h1 className="text-5xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <span className="bg-clip-text text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground text-transparent sm:text-6xl">
                 Hardware Development
               </span>
               <br />
-              <div className="relative h-[90px] overflow-hidden">
-                <div
-                  className="flex flex-col transition-transform duration-500 ease-in-out"
-                  style={{
-                    transform: `translateY(-${currentTextIndex * 80}px)`,
-                  }}
-                >
-                  {/* Original texts */}
-                  {rotatingTexts.map((text, index) => (
-                    <div
-                      key={index}
-                      className="h-20 flex items-center justify-center text-foreground"
-                    >
-                      {text}
-                    </div>
-                  ))}
-                  {/* Duplicate first text for seamless loop */}
-                  <div className="h-20 flex items-center justify-center text-foreground">
-                    {rotatingTexts[0]}
-                  </div>
-                </div>
-              </div>
+              <span className="bg-gradient-primary bg-clip-text text-transparent">
+                Made Simple
+              </span>
+
+              {/* <RotatingText /> */}
             </h1>
             <p className="mx-auto max-w-2xl text-xl text-muted-foreground sm:text-xl">
               End-to-end product lifecycle management for hardware companies.
