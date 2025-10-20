@@ -39,7 +39,7 @@ const Industries = () => {
 
   return (
     <section className="py-24 bg-gradient-secondary">
-      <div className="container mx-auto max-w-8xl px-12">
+      <div className="container mx-auto max-w-8xl sm:px-12 px-2">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 sm:text-5xl">
             Built for{" "}

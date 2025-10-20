@@ -64,7 +64,7 @@ const Pricing = () => {
 
   return (
     <section className="w-full py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto max-w-8xl sm:px-12 px-2">
         <div className="mx-auto mb-8 max-w-2xl text-center">
           <Badge variant="secondary" className="mb-3">
             Pricing

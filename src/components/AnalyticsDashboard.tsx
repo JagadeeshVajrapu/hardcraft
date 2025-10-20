@@ -152,7 +152,7 @@ const AnalyticsDashboard = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br max-w-8xl px-12 mx-auto from-background via-muted/10 to-background relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br max-w-8xl sm:px-12 px-2 mx-auto from-background via-muted/10 to-background relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
