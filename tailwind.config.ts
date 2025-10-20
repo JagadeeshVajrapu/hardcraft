@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Gilroy", "sans-serif"],
+        sans: ["Lexend", "sans-serif"],
       },
       fontWeight: {
         regular: "400",

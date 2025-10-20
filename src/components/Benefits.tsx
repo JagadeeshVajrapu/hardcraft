@@ -1,8 +1,13 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Clock, TrendingDown, Users, Zap, ArrowRight } from "lucide-react";
+import WaitlistDialog from "@/components/WaitlistDialog";
+import { useNavigate } from "react-router-dom";
 
 const Benefits = () => {
+  const navigate = useNavigate();
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   const benefits = [
     {
       icon: Clock,
@@ -43,7 +48,7 @@ const Benefits = () => {
       id="benefits"
       className="py-24 relative z-30 bg-background min-h-screen"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto max-w-8xl sm:px-12 px-2">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 sm:text-5xl">
             Measurable{" "}
@@ -106,24 +111,35 @@ const Benefits = () => {
                 <Button
                   size="lg"
                   className="h-14 px-8 text-lg font-semibold bg-gradient-primary hover:shadow-glow transition-all duration-300 hover:scale-105"
+                  onClick={() => setIsWaitlistOpen(true)}
                 >
-                  Start Your Free Trial
+                  Join the Waitlist
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
                   className="h-14 px-8 text-lg font-semibold border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                  onClick={() => navigate("/contact")}
                 >
                   Schedule a Demo
                 </Button>
               </div>
               <p className="text-sm text-muted-foreground">
-                No credit card required • 14-day free trial • Setup in minutes
+                Early adopters get{" "}
+                <span className="font-bold text-primary">
+                  6 months free access
+                </span>{" "}
+                — limited spots. Join the waitlist now.
               </p>
             </div>
           </CardContent>
         </Card>
+        {/* Waitlist Dialog */}
+        <WaitlistDialog
+          isOpen={isWaitlistOpen}
+          onClose={() => setIsWaitlistOpen(false)}
+        />
       </div>
     </section>
   );

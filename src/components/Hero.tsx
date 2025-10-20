@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/hero-hardware.jpg";
+import toolImage from "@/assets/hero-image2.png";
+import WaitlistDialog, { WaitlistFormData } from "./WaitlistDialog";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [isWaitlistDialogOpen, setIsWaitlistDialogOpen] = useState(false);
 
   const rotatingTexts = [
     "Made Simple",
@@ -12,6 +16,31 @@ const Hero = () => {
     "Procurement",
     "Compliance",
   ];
+
+  const RotatingText: React.FC = () => (
+    <div className="relative h-[90px] overflow-hidden">
+      <div
+        className="flex flex-col transition-transform duration-500 ease-in-out"
+        style={{
+          transform: `translateY(-${currentTextIndex * 80}px)`,
+        }}
+      >
+        {/* Original texts */}
+        {rotatingTexts.map((text, index) => (
+          <div
+            key={index}
+            className="h-20 flex items-center justify-center text-foreground"
+          >
+            {text}
+          </div>
+        ))}
+        {/* Duplicate first text for seamless loop */}
+        <div className="h-20 flex items-center justify-center text-foreground">
+          {rotatingTexts[0]}
+        </div>
+      </div>
+    </div>
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,8 +50,15 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleWaitlistSubmit = async (formData: WaitlistFormData) => {
+    // Handle form submission here
+    console.log("Waitlist form submitted:", formData);
+    // You can add API call here to submit the form data
+    // Example: await submitWaitlistForm(formData);
+  };
+
   return (
-    <section className="relative h-[1000px] flex items-center justify-center overflow-hidden bg-gradient-hero">
+    <section className="relative h-auto flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         {/* <img
@@ -34,38 +70,21 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto mt-8 px-4 text-center">
-        <div className="mx-auto max-w-4xl mt-10 space-y-8">
+      <div className="container relative z-10 mx-auto mt-16 px-4 text-center">
+        <div className="mx-auto max-w-7xl mt-24 space-y-8">
           <div className="space-y-4">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
+            <h1 className="text-5xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <span className="bg-clip-text text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground text-transparent sm:text-6xl">
                 Hardware Development
               </span>
               <br />
-              <div className="relative h-[90px] overflow-hidden">
-                <div
-                  className="flex flex-col transition-transform duration-500 ease-in-out"
-                  style={{
-                    transform: `translateY(-${currentTextIndex * 80}px)`,
-                  }}
-                >
-                  {/* Original texts */}
-                  {rotatingTexts.map((text, index) => (
-                    <div
-                      key={index}
-                      className="h-20 flex items-center justify-center text-foreground"
-                    >
-                      {text}
-                    </div>
-                  ))}
-                  {/* Duplicate first text for seamless loop */}
-                  <div className="h-20 flex items-center justify-center text-foreground">
-                    {rotatingTexts[0]}
-                  </div>
-                </div>
-              </div>
+              <span className="bg-gradient-primary bg-clip-text text-transparent">
+                Made Simple
+              </span>
+
+              {/* <RotatingText /> */}
             </h1>
-            <p className="mx-auto max-w-2xl text-xl text-muted-foreground sm:text-2xl">
+            <p className="mx-auto max-w-2xl text-xl text-muted-foreground sm:text-xl">
               End-to-end product lifecycle management for hardware companies.
             </p>
           </div>
@@ -74,68 +93,36 @@ const Hero = () => {
             <Button
               size="lg"
               className="h-12  rounded-full px-6 text-lg font-semibold bg-gradient-primary hover:shadow-glow transition-all duration-300 hover:scale-105"
+              onClick={() => setIsWaitlistDialogOpen(true)}
             >
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
+              Join Waitlist
             </Button>
             <Button
               variant="outline"
               size="lg"
               className="h-12  rounded-full  px-6 text-lg font-semibold border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+              onClick={() => navigate("/contact")}
             >
-              <Play className="mr-2 h-5 w-5" />
-              Watch Demo
+              Schedule a Demo
             </Button>
           </div>
 
-          {/* <div className="pt-8">
-            <p className="text-sm text-muted-foreground mb-6">
-              Trusted by hardware teams at innovative companies
-            </p>
-            <div className="flex items-center justify-center gap-8 opacity-60">
-              <div className="flex items-center gap-2">
-                <div className="h-8 w-8 rounded bg-industry-auto/20 flex items-center justify-center">
-                  <span className="text-industry-auto text-sm font-bold">
-                    A
-                  </span>
-                </div>
-                <span className="text-sm font-medium">Automotive</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="h-8 w-8 rounded bg-industry-aerospace/20 flex items-center justify-center">
-                  <span className="text-industry-aerospace text-sm font-bold">
-                    A
-                  </span>
-                </div>
-                <span className="text-sm font-medium">Aerospace</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="h-8 w-8 rounded bg-industry-pharma/20 flex items-center justify-center">
-                  <span className="text-industry-pharma text-sm font-bold">
-                    P
-                  </span>
-                </div>
-                <span className="text-sm font-medium">Pharma</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="h-8 w-8 rounded bg-industry-media/20 flex items-center justify-center">
-                  <span className="text-industry-media text-sm font-bold">
-                    M
-                  </span>
-                </div>
-                <span className="text-sm font-medium">Media</span>
-              </div>
-            </div>
-          </div> */}
           <div className="flex justify-center items-center mt-16">
             <img
-              src={heroImage}
+              src={toolImage}
               alt="Modern hardware development workspace"
-              className="items-center w-[700px] h-[400px] object-cover rounded-3xl"
+              className="max-w-full object-contain rounded-3xl shadow-2xl"
             />
           </div>
         </div>
       </div>
+
+      {/* Waitlist Dialog */}
+      <WaitlistDialog
+        isOpen={isWaitlistDialogOpen}
+        onClose={() => setIsWaitlistDialogOpen(false)}
+        onSubmit={handleWaitlistSubmit}
+      />
     </section>
   );
 };
