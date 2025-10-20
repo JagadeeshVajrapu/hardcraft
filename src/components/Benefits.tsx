@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Clock, TrendingDown, Users, Zap, ArrowRight } from "lucide-react";
+import WaitlistDialog from "@/components/WaitlistDialog";
 
 const Benefits = () => {
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   const benefits = [
     {
       icon: Clock,
@@ -106,8 +109,9 @@ const Benefits = () => {
                 <Button
                   size="lg"
                   className="h-14 px-8 text-lg font-semibold bg-gradient-primary hover:shadow-glow transition-all duration-300 hover:scale-105"
+                  onClick={() => setIsWaitlistOpen(true)}
                 >
-                  Start Your Free Trial
+                  Join the Waitlist
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button
@@ -124,6 +128,11 @@ const Benefits = () => {
             </div>
           </CardContent>
         </Card>
+        {/* Waitlist Dialog */}
+        <WaitlistDialog
+          isOpen={isWaitlistOpen}
+          onClose={() => setIsWaitlistOpen(false)}
+        />
       </div>
     </section>
   );

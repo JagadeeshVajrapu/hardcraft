@@ -49,7 +49,7 @@ const Features = () => {
     },
     {
       icon: CreditCard,
-      title: "Payment Tracking",
+      title: "Cost Tracking",
       description:
         "Monitor project costs, track supplier payments, and generate detailed financial reports for better budget control.",
       color: "text-industry-media",

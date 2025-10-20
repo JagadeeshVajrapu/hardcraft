@@ -94,7 +94,7 @@ const ProblemSolution = () => {
         <div className="grid lg:grid-cols-2 gap-20 items-start">
           {/* Problems Section */}
           <div className="space-y-10">
-            <div className="text-center lg:text-left">
+            <div className="text-center">
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-destructive/10 border border-destructive/20 mb-4">
                 <AlertTriangle className="h-5 w-5 text-destructive" />
                 <span className="text-sm font-semibold text-destructive">
@@ -136,7 +136,7 @@ const ProblemSolution = () => {
 
           {/* Solutions Section */}
           <div className="space-y-10">
-            <div className="text-center lg:text-left">
+            <div className="text-center">
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
                 <CheckCircle className="h-5 w-5 text-primary" />
                 <span className="text-sm font-semibold text-primary">
