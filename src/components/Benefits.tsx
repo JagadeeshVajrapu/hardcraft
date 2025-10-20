@@ -43,7 +43,7 @@ const Benefits = () => {
       id="benefits"
       className="py-24 relative z-30 bg-background min-h-screen"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto max-w-8xl px-12">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 sm:text-5xl">
             Measurable{" "}
