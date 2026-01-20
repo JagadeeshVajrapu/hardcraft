@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   AlertTriangle,
@@ -66,7 +67,13 @@ const ProblemSolution = () => {
   ];
 
   return (
-    <section className="py-24 max-w-8xl sm:px-12 px-2 mx-auto bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden">
+    <motion.section
+      className="py-24 max-w-8xl sm:px-12 px-2 mx-auto bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
@@ -74,7 +81,13 @@ const ProblemSolution = () => {
 
       <div className="container mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-20">
+        <motion.div
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
             <Sparkles className="h-4 w-4 text-primary" />
             <span className="text-sm font-medium text-primary">
@@ -88,10 +101,16 @@ const ProblemSolution = () => {
             Hardware teams struggle with scattered tools and messy workflows. We
             fix that.
           </p>
-        </div>
+        </motion.div>
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-20 items-start">
+        <motion.div
+          className="grid lg:grid-cols-2 gap-20 items-start"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           {/* Problems Section */}
           <div className="space-y-10">
             <div className="text-center">
@@ -173,19 +192,25 @@ const ProblemSolution = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Bottom CTA */}
-        <div className="mt-20 text-center">
+        <motion.div
+          className="mt-20 text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30">
             <ArrowRight className="h-5 w-5 text-primary" />
             <span className="text-sm font-semibold text-primary">
               Ready to get started?
             </span>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

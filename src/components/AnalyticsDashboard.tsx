@@ -1,5 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   BarChart3,
   TrendingUp,
@@ -153,7 +154,13 @@ const AnalyticsDashboard = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br max-w-8xl sm:px-12 px-2 mx-auto from-background via-muted/10 to-background relative overflow-hidden">
+    <motion.section
+      className="py-24 bg-gradient-to-br max-w-8xl sm:px-12 px-2 mx-auto from-background via-muted/10 to-background relative overflow-hidden"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
@@ -161,7 +168,13 @@ const AnalyticsDashboard = () => {
 
       <div className="container mx-auto relative z-10">
         {/* Component Title */}
-        <div className="text-center mb-20">
+        <motion.div
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent sm:text-7xl">
             Intelligence Unleashed
           </h1>
@@ -169,15 +182,19 @@ const AnalyticsDashboard = () => {
             Transform raw data into strategic advantage with powerful analytics
             that drive smarter decisions and faster innovation.
           </p>
-        </div>
+        </motion.div>
 
         <div className="space-y-32">
           {sections.map((section) => (
-            <div
+            <motion.div
               key={section.id}
               className={`grid lg:grid-cols-2 gap-16 items-center ${
                 section.imagePosition === "left" ? "lg:grid-flow-col-dense" : ""
               }`}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
             >
               {/* Content Section */}
               <div
@@ -251,15 +268,19 @@ const AnalyticsDashboard = () => {
               </div>
 
               {/* Image Section */}
-              <div
+              <motion.div
                 className={`${
                   section.imagePosition === "left" ? "lg:col-start-1" : ""
                 }`}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
               >
                 <Card className="bg-gradient-to-br from-primary/5 via-card/50 to-accent/5 backdrop-blur-sm border-border/50 shadow-elevated overflow-hidden">
                   <CardContent className="p-0">
                     <div className="aspect-[4/3] relative overflow-hidden">
-                      <img
+                      <motion.img
                         src={
                           section.features[
                             expandedFeature[section.id] >= 0
@@ -268,17 +289,21 @@ const AnalyticsDashboard = () => {
                           ].image
                         }
                         alt={section.title}
-                        className="w-full h-full object-cover transition-opacity duration-300"
+                        className="w-full h-full object-cover"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
                       />
                     </div>
                   </CardContent>
                 </Card>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

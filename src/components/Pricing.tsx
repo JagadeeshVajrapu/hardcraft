@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
@@ -63,9 +64,22 @@ const Pricing = () => {
   };
 
   return (
-    <section className="w-full py-20">
+    <motion.section
+      id="pricing"
+      className="w-full py-20"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       <div className="container mx-auto max-w-8xl sm:px-12 px-2">
-        <div className="mx-auto mb-8 max-w-2xl text-center">
+        <motion.div
+          className="mx-auto mb-8 max-w-2xl text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <Badge variant="secondary" className="mb-3">
             Pricing
           </Badge>
@@ -75,9 +89,15 @@ const Pricing = () => {
           <p className="mt-3 text-muted-foreground">
             Choose a plan that fits your team today and scale as you grow.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mb-10 flex items-center justify-center gap-4">
+        <motion.div
+          className="mb-10 flex items-center justify-center gap-4"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <span className="text-sm font-medium text-muted-foreground">
             Monthly
           </span>
@@ -92,9 +112,15 @@ const Pricing = () => {
               Save 20%
             </Badge>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           {tiers.map((tier) => (
             <Card
               key={tier.name}
@@ -141,9 +167,9 @@ const Pricing = () => {
               </CardFooter>
             </Card>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Car, Plane, Pill, Video } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -41,9 +42,22 @@ const Industries = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-secondary">
+    <motion.section
+      id="industries"
+      className="py-24 bg-gradient-secondary"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       <div className="container mx-auto max-w-8xl sm:px-12 px-2">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <h2 className="text-4xl font-bold mb-4 sm:text-5xl">
             Built for{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
@@ -54,9 +68,15 @@ const Industries = () => {
             Purpose-built workflows to plan, build, and ship reliable products
             faster.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           {industries.map((industry, index) => {
             const IconComponent = industry.icon;
             return (
@@ -100,9 +120,15 @@ const Industries = () => {
               </Card>
             );
           })}
-        </div>
+        </motion.div>
 
-        <div className="text-center mt-12">
+        <motion.div
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <p className="text-muted-foreground">
             Don't see your industry?{" "}
             <span
@@ -113,9 +139,9 @@ const Industries = () => {
             </span>{" "}
             to learn how we can customize our platform for your specific needs.
           </p>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

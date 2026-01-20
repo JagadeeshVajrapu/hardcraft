@@ -19,90 +19,109 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Lexend", "sans-serif"],
+        sans: ["Inter", "SF Pro Display", "Helvetica Neue", "sans-serif"],
       },
-      fontWeight: {
-        regular: "400",
-        bold: "600",
-        extrabold: "800",
-      },
+      
+
+      /* ---------------- COLORS (PURE NEUTRAL – NO BLUE) ---------------- */
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        /* Base */
+        background: "#0A0A0A",
+        foreground: "#FFFFFF",
+
+        /* Borders & Inputs */
+        border: "rgba(255,255,255,0.12)",
+        input: "rgba(255,255,255,0.08)",
+        ring: "rgba(255,255,255,0.25)",
+
+        /* Primary Button (WHITE) */
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-          glow: "hsl(var(--primary-glow))",
+          DEFAULT: "#FFFFFF",     // always white
+          foreground: "#000000",
         },
+        
+        
+
+        /* Secondary Button (OUTLINE) */
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "rgba(255,255,255,0.05)",
+          foreground: "#FFFFFF",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
+
+        /* Muted / Subtext (FIXED – NO BLUE) */
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "#0A0A0A",
+          foreground: "#9CA3AF",
         },
+
+        /* Accent (NEUTRAL, NOT BLUE) */
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "#1A1A1A",
+          foreground: "#E5E7EB",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
+
+        /* Cards / Sections (FIXED – NO BLUE) */
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "#0A0A0A",
+          foreground: "#E5E7EB",
         },
+
+        /* Destructive */
+        destructive: {
+          DEFAULT: "#DC2626",
+          foreground: "#FFFFFF",
+        },
+
+        /* Industry (NEUTRALIZED) */
         industry: {
-          auto: "hsl(var(--industry-auto))",
-          aerospace: "hsl(var(--industry-aerospace))",
-          pharma: "hsl(var(--industry-pharma))",
-          media: "hsl(var(--industry-media))",
+          auto: "#0A0A0A",
+          aerospace: "#0A0A0A",
+          pharma: "#0A0A0A",
+          media: "#0A0A0A",
         },
       },
+
+      /* ---------------- BACKGROUND IMAGES (BLUE REMOVED) ---------------- */
       backgroundImage: {
-        "gradient-primary": "var(--gradient-primary)",
-        "gradient-secondary": "var(--gradient-secondary)",
-        "gradient-hero": "var(--gradient-hero)",
+        /* ❌ Removed blue gradients completely */
+        "gradient-hero": "none",
+        "gradient-primary": "none",
+        "gradient-secondary": "none",
+
+        /* Optional hover glow (neutral, safe) */
+        "hover-glow":
+          "radial-gradient(80% 40% at 50% -10%, rgba(255,255,255,0.06), transparent 60%)",
       },
+
+      /* ---------------- SHADOWS ---------------- */
       boxShadow: {
-        glow: "var(--shadow-glow)",
-        card: "var(--shadow-card)",
-        elevated: "var(--shadow-elevated)",
+        glow: "0 0 40px rgba(255,255,255,0.06)",
+        card: "0 20px 40px rgba(0,0,0,0.7)",
+        elevated: "0 30px 60px rgba(0,0,0,0.85)",
       },
+
+      /* ---------------- TRANSITIONS ---------------- */
       transitionTimingFunction: {
-        smooth: "var(--transition-smooth)",
-        bounce: "var(--transition-bounce)",
+        smooth: "cubic-bezier(0.4, 0, 0.2, 1)",
+        bounce: "cubic-bezier(0.34, 1.56, 0.64, 1)",
       },
+
+      /* ---------------- RADIUS ---------------- */
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "16px",
+        md: "12px",
+        sm: "8px",
       },
+
+      /* ---------------- ANIMATIONS ---------------- */
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {

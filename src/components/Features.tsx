@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   FolderKanban,
@@ -71,9 +72,22 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-24">
+    <motion.section
+      id="features"
+      className="py-24"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       <div className="container mx-auto max-w-8xl sm:px-12 px-2">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <h2 className="text-4xl font-bold mb-4 sm:text-5xl">
             Everything You Need in{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
@@ -85,9 +99,15 @@ const Features = () => {
             teams. Stop juggling multiple platforms and focus on what matters
             most - building great products.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
@@ -111,9 +131,9 @@ const Features = () => {
               </Card>
             );
           })}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

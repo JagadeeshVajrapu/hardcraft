@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* =========================
+   DESIGN SYSTEM
+   ========================= */
 
 @layer base {
   :root {
@@ -40,31 +40,35 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Custom design tokens */
+    /* Gradients */
     --gradient-primary: linear-gradient(
       135deg,
       hsl(var(--primary)),
       hsl(var(--accent))
     );
+
     --gradient-secondary: linear-gradient(
       180deg,
       hsl(var(--background)),
       hsl(var(--muted))
     );
+
     --gradient-hero: linear-gradient(
       135deg,
       hsl(var(--primary) / 0.1),
       hsl(var(--accent) / 0.1)
     );
 
+    /* Shadows */
     --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
     --shadow-card: 0 4px 24px hsl(210 20% 4% / 0.4);
     --shadow-elevated: 0 8px 40px hsl(210 20% 4% / 0.6);
 
+    /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    /* Hardware industry colors */
+    /* Industry colors */
     --industry-auto: 45 90% 60%;
     --industry-aerospace: 200 90% 60%;
     --industry-pharma: 120 70% 50%;
@@ -78,18 +82,98 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: "Lexend", sans-serif;
+    @apply bg-background text-foreground font-sans;
   }
 }
 
 @layer utilities {
   .bg-grid-pattern {
-    background-image: linear-gradient(
-        rgba(255, 255, 255, 0.1) 1px,
-        transparent 1px
-      ),
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
+  }
+
+  /* Isometric 3D Effect - Static Premium SaaS Style (Linear-style) */
+  .isometric-container {
+    transform-style: preserve-3d;
+  }
+
+  .isometric-image {
+    width: 100%;
+    max-width: 1200px;
+    transform: rotateX(54deg) rotateZ(-27deg) translateY(-16px);
+    transform-origin: center;
+    border-radius: 12px;
+    box-shadow: 0 120px 220px rgba(0, 0, 0, 0.85);
+    transition: none;
+    transform-style: preserve-3d;
+    display: block;
+    mask-image: radial-gradient(
+      ellipse 80% 80% at center,
+      rgba(0, 0, 0, 1) 60%,
+      rgba(0, 0, 0, 0.995) 68%,
+      rgba(0, 0, 0, 0.98) 75%,
+      rgba(0, 0, 0, 0.94) 81%,
+      rgba(0, 0, 0, 0.86) 86%,
+      rgba(0, 0, 0, 0.74) 90%,
+      rgba(0, 0, 0, 0.58) 93%,
+      rgba(0, 0, 0, 0.38) 96%,
+      rgba(0, 0, 0, 0.18) 98%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 80% 80% at center,
+      rgba(0, 0, 0, 1) 60%,
+      rgba(0, 0, 0, 0.995) 68%,
+      rgba(0, 0, 0, 0.98) 75%,
+      rgba(0, 0, 0, 0.94) 81%,
+      rgba(0, 0, 0, 0.86) 86%,
+      rgba(0, 0, 0, 0.74) 90%,
+      rgba(0, 0, 0, 0.58) 93%,
+      rgba(0, 0, 0, 0.38) 96%,
+      rgba(0, 0, 0, 0.18) 98%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  /* New Badge Pill Style - Exact Match to Reference */
+  .new-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    background: #0B0B0F;
+    border-radius: 9999px;
+    padding: 4px 10px;
+    box-shadow: 0 0 24px rgba(168, 85, 247, 0.35);
+    gap: 4px;
+    height: auto;
+    width: auto;
+  }
+
+  .new-badge-label {
+    background: linear-gradient(135deg, #8B5CF6, #A855F7);
+    color: #FFFFFF;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .new-badge-text {
+    color: #FFFFFF;
+    padding: 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
   }
 }

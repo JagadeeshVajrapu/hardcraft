@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Clock, TrendingDown, Users, Zap, ArrowRight } from "lucide-react";
@@ -44,12 +45,22 @@ const Benefits = () => {
   ];
 
   return (
-    <section
+    <motion.section
       id="benefits"
       className="py-24 relative z-30 bg-background min-h-screen"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <div className="container mx-auto max-w-8xl sm:px-12 px-2">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           <h2 className="text-4xl font-bold mb-4 sm:text-5xl">
             Measurable{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
@@ -60,9 +71,15 @@ const Benefits = () => {
             Don't just take our word for it. Our customers see real, measurable
             improvements in their hardware development processes from day one.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon;
             return (
@@ -94,10 +111,16 @@ const Benefits = () => {
               </Card>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* CTA Section */}
-        <Card className="bg-gradient-primary/10 border-primary/20 shadow-glow">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          <Card className="bg-gradient-primary/10 border-primary/20 shadow-glow">
           <CardContent className="p-12 text-center">
             <div className="max-w-3xl mx-auto space-y-6">
               <h3 className="text-3xl font-bold">
@@ -135,13 +158,14 @@ const Benefits = () => {
             </div>
           </CardContent>
         </Card>
+        </motion.div>
         {/* Waitlist Dialog */}
         <WaitlistDialog
           isOpen={isWaitlistOpen}
           onClose={() => setIsWaitlistOpen(false)}
         />
       </div>
-    </section>
+    </motion.section>
   );
 };
 
