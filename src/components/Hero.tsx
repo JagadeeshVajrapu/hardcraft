@@ -50,10 +50,10 @@ const Hero = () => {
 
   const handleWaitlistSubmit = async (formData: WaitlistFormData) => {
     try {
-    console.log("Waitlist form submitted:", formData);
+      console.log("Waitlist form submitted:", formData);
       // Here you can add API call to submit the form data
       // await submitWaitlistForm(formData);
-      
+
       // Close the dialog after successful submission
       setIsWaitlistDialogOpen(false);
     } catch (error) {
@@ -65,7 +65,7 @@ const Hero = () => {
   // Generate small white dots that rotate around themselves
   const dots = useMemo(() => {
     const dotArray = [];
-    
+
     for (let i = 0; i < 200; i++) {
       dotArray.push({
         id: i,
@@ -144,7 +144,7 @@ const Hero = () => {
             ease: "easeInOut",
           }}
         />
-        
+
         {/* Secondary blob layer for depth and softness */}
         <motion.div
           className="absolute"
@@ -171,7 +171,7 @@ const Hero = () => {
             delay: 2,
           }}
         />
-        
+
         {/* Tertiary subtle blob for extra glow */}
         <motion.div
           className="absolute"
@@ -201,23 +201,68 @@ const Hero = () => {
       </div>
       {/* Content */}
       <div className="container relative z-10 mx-auto px-4 text-center pointer-events-auto">
-        <div className="mx-auto max-w-7xl pt-24 pb-8 space-y-8">
+        <div className="mx-auto max-w-7xl pt-24 pb-8 space-y-4">
           <motion.div
             className="space-y-4"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
           >
-            {/* Badge (UNCHANGED) */}
-            <div className="flex justify-center mb-[10px]">
-              <div className="new-badge-pill">
-                <span className="new-badge-label">New</span>
-                <span className="new-badge-text">Product Update</span>
-              </div>
-            </div>
+            {/* Badge - Animated Text */}
+            <motion.div
+              className="flex justify-center mb-[10px]"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            >
+              <motion.div
+                className="new-badge-pill"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+              >
+                <motion.span
+                  className="new-badge-label"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.4,
+                    ease: "backOut",
+                    delay: 0.4
+                  }}
+                >
+                  New
+                </motion.span>
+                <motion.span
+                  className="new-badge-text"
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeOut",
+                    delay: 0.6
+                  }}
+                >
+                  {"Product Update".split("").map((char, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        delay: 0.7 + index * 0.03,
+                        duration: 0.3,
+                        ease: "easeOut"
+                      }}
+                    >
+                      {char === " " ? "\u00A0" : char}
+                    </motion.span>
+                  ))}
+                </motion.span>
+              </motion.div>
+            </motion.div>
 
-            {/* Main Heading */}
-            <h1 
+            {/* Main Heading - Animated Text */}
+            <motion.h1
               className="text-4xl font-semibold tracking-[-0.02em] leading-[1.2] sm:text-5xl lg:text-6xl text-white text-center"
               style={{
                 color: '#FFFFFF',
@@ -226,12 +271,32 @@ const Hero = () => {
                 letterSpacing: '-0.02em',
                 lineHeight: 1.2,
               }}
+              initial="hidden"
+              animate="visible"
             >
-              Hardware Development 
-            </h1>
+              {"Hardware Development".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: {
+                        delay: 0.3 + index * 0.04,
+                        duration: 0.4,
+                        ease: "easeOut"
+                      }
+                    }
+                  }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </motion.h1>
 
-            {/* Subheading */}
-            <p 
+            {/* Subheading - Animated Text */}
+            <motion.p
               className="mx-auto max-w-[720px] text-lg sm:text-xl text-center"
               style={{
                 color: '#A1A1A1',
@@ -240,67 +305,115 @@ const Hero = () => {
                 fontWeight: 400,
                 lineHeight: 1.6,
               }}
+              initial="hidden"
+              animate="visible"
             >
-              End-to-end product lifecycle management for hardware companies.
-            </p>
+              {"End-to-end product lifecycle management for hardware companies."
+                .split(" ")
+                .map((word, wordIndex) => (
+                  <motion.span
+                    key={wordIndex}
+                    style={{ display: "inline-block", marginRight: "0.25em" }}
+                    variants={{
+                      hidden: { opacity: 0, y: 10 },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                          delay: 1.2 + wordIndex * 0.04,
+                          duration: 0.4,
+                          ease: "easeOut"
+                        }
+                      }
+                    }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+            </motion.p>
           </motion.div>
 
           {/* Buttons */}
           <motion.div
             className="flex flex-col gap-4 sm:flex-row sm:justify-center relative z-20"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <Button
-              size="lg"
-              type="button"
-              className="h-12 rounded-full px-6 text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-glow transition-all duration-300 hover:scale-105 cursor-pointer relative z-20"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setIsWaitlistDialogOpen(true);
-              }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 2.5 }}
             >
-              Join Waitlist
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              type="button"
-              className="h-12 rounded-full px-6 text-lg font-semibold border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 cursor-pointer relative z-20"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                navigate("/contact");
-              }}
+              <Button
+                size="lg"
+                type="button"
+                className="h-12 rounded-full px-6 text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-glow transition-all duration-300 hover:scale-105 cursor-pointer relative z-20"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setIsWaitlistDialogOpen(true);
+                }}
+              >
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 2.7 }}
+                >
+                  Join Waitlist
+                </motion.span>
+              </Button>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 2.7 }}
             >
-              Schedule a Demo
-            </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                type="button"
+                className="h-12 rounded-full px-6 text-lg font-semibold border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 cursor-pointer relative z-20"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigate("/contact");
+                }}
+              >
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 2.9 }}
+                >
+                  Schedule a Demo
+                </motion.span>
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* Image Section (UNCHANGED) */}
+        {/* Image Section with Enhanced Fade-out Effect */}
         <motion.div
-          className="isometric-container w-full"
+          className="isometric-container w-full relative"
           style={{
             perspective: "2000px",
             perspectiveOrigin: "center center",
-            marginTop: "-80px",
+            marginTop: "-40px",
             marginBottom: "40px",
             display: "flex",
             justifyContent: "center",
             overflow: "visible",
+            transform: "translateX(100px)",
           }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
         >
-          <img
-            src={toolImage}
-            alt="Hardware development dashboard"
-            className="isometric-image"
-          />
+          {/* Image with seamless fade-out */}
+          <div className="relative" style={{ transformStyle: "preserve-3d" }}>
+            <img
+              src={toolImage}
+              alt="Hardware development dashboard"
+              className="isometric-image relative z-10"
+            />
+          </div>
         </motion.div>
       </div>
 
