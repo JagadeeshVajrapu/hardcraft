@@ -12,7 +12,6 @@ const Industries = () => {
       name: "Meditech",
       description:
         "Accelerate compliant medical device and healthtech development with end-to-end traceability.",
-      color: "industry-pharma",
       stats: "200+ meditech teams",
     },
     {
@@ -20,7 +19,6 @@ const Industries = () => {
       name: "Drone",
       description:
         "Plan, prototype, and certify UAV systems with robust workflows across hardware and firmware.",
-      color: "industry-aerospace",
       stats: "100+ drone programs",
     },
     {
@@ -28,7 +26,6 @@ const Industries = () => {
       name: "Automotive",
       description:
         "From concept to production, orchestrate complex vehicle programs with precision and quality.",
-      color: "industry-auto",
       stats: "500+ automotive teams",
     },
     {
@@ -36,7 +33,6 @@ const Industries = () => {
       name: "Consumer Electronics",
       description:
         "Ship reliable consumer devices faster with coordinated design, firmware, and manufacturing.",
-      color: "industry-media",
       stats: "300+ electronics companies",
     },
   ];
@@ -58,13 +54,10 @@ const Industries = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <h2 className="text-4xl font-bold mb-4 sm:text-5xl">
-            Built for{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Hardware Teams
-            </span>
+          <h2 className="text-4xl font-bold mb-4 sm:text-5xl text-center">
+            Built for <span className="text-primary">Hardware Teams</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-center">
             Purpose-built workflows to plan, build, and ship reliable products
             faster.
           </p>
@@ -84,18 +77,12 @@ const Industries = () => {
                 key={index}
                 className="bg-card/30 backdrop-blur border-border/30 shadow-card hover:shadow-elevated transition-all duration-500 hover:scale-105 group relative overflow-hidden"
               >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br from-${industry.color}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                ></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 <CardContent className="p-8 relative z-10">
                   <div className="text-center space-y-6">
-                    <div
-                      className={`h-16 w-16 rounded-2xl bg-${industry.color}/20 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <IconComponent
-                        className={`h-8 w-8 text-${industry.color}`}
-                      />
+                    <div className="h-16 w-16 rounded-2xl bg-white/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="h-8 w-8 text-white" />
                     </div>
 
                     <div>
@@ -105,12 +92,8 @@ const Industries = () => {
                       <p className="text-muted-foreground mb-4 leading-relaxed">
                         {industry.description}
                       </p>
-                      <div
-                        className={`inline-block px-3 py-1 rounded-full bg-${industry.color}/10 border border-${industry.color}/20`}
-                      >
-                        <span
-                          className={`text-sm font-medium text-${industry.color}`}
-                        >
+                      <div className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10">
+                        <span className="text-sm font-medium text-white">
                           {industry.stats}
                         </span>
                       </div>

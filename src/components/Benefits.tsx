@@ -55,19 +55,19 @@ const Benefits = () => {
     >
       <div className="container mx-auto max-w-8xl sm:px-12 px-2">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-16 flex flex-col items-center justify-center"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <h2 className="text-4xl font-bold mb-4 sm:text-5xl">
+          <h2 className="text-4xl font-bold mb-4 sm:text-5xl text-center">
             Measurable{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
+            <span className="text-primary">
               Results
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-center">
             Don't just take our word for it. Our customers see real, measurable
             improvements in their hardware development processes from day one.
           </p>
@@ -89,12 +89,12 @@ const Benefits = () => {
               >
                 <CardContent className="p-8">
                   <div className="space-y-4">
-                    <div className="h-16 w-16 rounded-2xl bg-gradient-primary/20 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="h-8 w-8 text-primary" />
+                    <div className="h-16 w-16 rounded-2xl bg-white/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="h-8 w-8 text-white" />
                     </div>
 
                     <div className="space-y-2">
-                      <div className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                      <div className="text-4xl font-bold text-primary">
                         {benefit.value}
                       </div>
                       <h3 className="text-xl font-semibold">{benefit.title}</h3>
@@ -120,7 +120,7 @@ const Benefits = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <Card className="bg-gradient-primary/10 border-primary/20 shadow-glow">
+          <Card className="bg-card/70 border-primary/20 shadow-glow">
           <CardContent className="p-12 text-center">
             <div className="max-w-3xl mx-auto space-y-6">
               <h3 className="text-3xl font-bold">
@@ -133,7 +133,7 @@ const Benefits = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Button
                   size="lg"
-                  className="h-14 px-8 text-lg font-semibold bg-gradient-primary hover:shadow-glow transition-all duration-300 hover:scale-105"
+                  className="h-14 px-8 text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-glow transition-all duration-300 hover:scale-105"
                   onClick={() => setIsWaitlistOpen(true)}
                 >
                   Join the Waitlist

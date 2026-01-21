@@ -229,9 +229,9 @@ const AnalyticsDashboard = () => {
                         <CardContent className="p-6">
                           <div className="flex items-start gap-4">
                             <div
-                              className={`p-3 rounded-xl bg-primary/10 ${feature.color} group-hover:scale-110 transition-transform duration-300`}
+                              className="p-3 rounded-xl bg-white/10 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center"
                             >
-                              <IconComponent className="h-6 w-6" />
+                              <IconComponent className="h-6 w-6 text-white" />
                             </div>
                             <div className="flex-1">
                               <div className="flex items-center justify-between">

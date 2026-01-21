@@ -82,12 +82,17 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative h-auto flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Small White Dots Rotating Around Themselves */}
-        {dots.map((dot) => {
-          return (
+        {/* Orbital field so dots drift in a subtle circular motion */}
+        <motion.div
+          className="absolute inset-0"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 180, repeat: Infinity, ease: "linear" }}
+          style={{ transformOrigin: "50% 50%" }}
+        >
+          {dots.map((dot) => (
             <motion.div
               key={dot.id}
               className="absolute rounded-full bg-white"
@@ -110,8 +115,8 @@ const Hero = () => {
                 delay: dot.delay,
               }}
             />
-          );
-        })}
+          ))}
+        </motion.div>
 
         {/* Large Glowing Purple-Pink Blob - Main Shape */}
         <motion.div
@@ -213,7 +218,7 @@ const Hero = () => {
 
             {/* Main Heading */}
             <h1 
-              className="text-4xl font-semibold tracking-[-0.02em] leading-[1.2] sm:text-5xl lg:text-6xl text-white"
+              className="text-4xl font-semibold tracking-[-0.02em] leading-[1.2] sm:text-5xl lg:text-6xl text-white text-center"
               style={{
                 color: '#FFFFFF',
                 fontFamily: 'Inter, SF Pro Display, Helvetica Neue, sans-serif',
@@ -250,7 +255,7 @@ const Hero = () => {
             <Button
               size="lg"
               type="button"
-              className="h-12 rounded-full px-6 text-lg font-semibold bg-gradient-primary hover:shadow-glow transition-all duration-300 hover:scale-105 cursor-pointer relative z-20"
+              className="h-12 rounded-full px-6 text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-glow transition-all duration-300 hover:scale-105 cursor-pointer relative z-20"
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();

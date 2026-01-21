@@ -161,7 +161,14 @@ const Pricing = () => {
                 </ul>
               </CardContent>
               <CardFooter>
-                <Button className="w-full" variant={tier.cta.variant}>
+                <Button 
+                  className={`w-full ${
+                    tier.highlight 
+                      ? "bg-primary text-primary-foreground hover:bg-primary/90" 
+                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80 border-border/50"
+                  }`}
+                  variant={tier.highlight ? "default" : "secondary"}
+                >
                   {tier.cta.label}
                 </Button>
               </CardFooter>

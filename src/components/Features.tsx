@@ -18,56 +18,64 @@ const Features = () => {
       title: "Project Management",
       description:
         "Kanban boards, Gantt charts, and milestone tracking designed specifically for hardware development cycles.",
-      color: "text-primary",
+      iconColor: "text-white",
+      bgGradient: "from-white/10 to-white/0",
     },
     {
       icon: Package,
       title: "Inventory Management",
       description:
         "Real-time component tracking, automated reorder points, and supplier integration for seamless inventory control.",
-      color: "text-accent",
+      iconColor: "text-white",
+      bgGradient: "from-slate-200/15 to-slate-50/0",
     },
     {
       icon: GitBranch,
       title: "Version Control",
       description:
         "Track design revisions, manage CAD files, and maintain complete audit trails for all hardware iterations.",
-      color: "text-industry-aerospace",
+      iconColor: "text-white",
+      bgGradient: "from-gray-200/20 to-gray-50/0",
     },
     {
       icon: FileText,
       title: "Document Storage",
       description:
         "Centralized repository for specifications, test results, compliance documents, and technical drawings.",
-      color: "text-industry-pharma",
+      iconColor: "text-white",
+      bgGradient: "from-zinc-100/20 to-zinc-50/0",
     },
     {
       icon: Workflow,
       title: "Workflow Tracking",
       description:
         "Automated workflows for design reviews, testing protocols, and approval processes with customizable stages.",
-      color: "text-industry-auto",
+      iconColor: "text-white",
+      bgGradient: "from-slate-100/20 to-slate-50/0",
     },
     {
       icon: CreditCard,
       title: "Cost Tracking",
       description:
         "Monitor project costs, track supplier payments, and generate detailed financial reports for better budget control.",
-      color: "text-industry-media",
+      iconColor: "text-white",
+      bgGradient: "from-gray-100/20 to-gray-50/0",
     },
     {
       icon: Shield,
       title: "ISO Standards Integration",
       description:
         "Built-in compliance templates and automated reporting for ISO 9001, ISO 13485, and other industry standards.",
-      color: "text-primary",
+      iconColor: "text-white",
+      bgGradient: "from-white/10 to-white/0",
     },
     {
       icon: Users,
       title: "Team Collaboration",
       description:
         "Real-time collaboration tools, comment systems, and notification workflows to keep your team synchronized.",
-      color: "text-accent",
+      iconColor: "text-white",
+      bgGradient: "from-slate-200/15 to-slate-50/0",
     },
   ];
 
@@ -88,13 +96,11 @@ const Features = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <h2 className="text-4xl font-bold mb-4 sm:text-5xl">
+          <h2 className="text-4xl font-bold mb-4 sm:text-5xl text-center">
             Everything You Need in{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
-              One Platform
-            </span>
+            <span className="text-primary">One Platform</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-center">
             Comprehensive tools designed specifically for hardware development
             teams. Stop juggling multiple platforms and focus on what matters
             most - building great products.
@@ -117,9 +123,9 @@ const Features = () => {
               >
                 <CardHeader className="pb-4">
                   <div
-                    className={`h-12 w-12 rounded-lg bg-gradient-to-br from-${feature.color}/20 to-${feature.color}/10 flex items-center justify-center mb-4 group-hover:shadow-glow transition-all duration-300`}
+                    className="h-12 w-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 group-hover:shadow-glow group-hover:bg-white/15 transition-all duration-300"
                   >
-                    <IconComponent className={`h-6 w-6 ${feature.color}`} />
+                    <IconComponent className="h-6 w-6 text-white" />
                   </div>
                   <CardTitle className="text-xl">{feature.title}</CardTitle>
                 </CardHeader>
