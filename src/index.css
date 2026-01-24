@@ -203,4 +203,58 @@
     font-size: 0.875rem;
     font-weight: 500;
   }
+
+  /* Feature Dashboard Images - Enhanced visibility for text clarity */
+  .feature-dashboard-image {
+    /* Remove any transparency effects */
+    opacity: 1 !important;
+    
+    /* Enhanced contrast and brightness for text visibility */
+    filter: contrast(1.4) brightness(1.3) saturate(1.15);
+    -webkit-filter: contrast(1.4) brightness(1.3) saturate(1.15);
+    
+    /* Sharp text rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    
+    /* Remove any mask effects that might cause transparency */
+    -webkit-mask-image: none;
+    mask-image: none;
+    
+    /* Ensure full opacity */
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+  }
+
+  /* Feature Dashboard Card - White top border on the card itself */
+  .feature-dashboard-card {
+    border-top: 8px solid #FFFFFF !important;
+    border-top-width: 8px !important;
+    border-top-color: #FFFFFF !important;
+    box-shadow: 0 -5px 20px rgba(255, 255, 255, 0.7), 0 0 25px rgba(255, 255, 255, 0.4) !important;
+    -webkit-box-shadow: 0 -5px 20px rgba(255, 255, 255, 0.7), 0 0 25px rgba(255, 255, 255, 0.4) !important;
+    position: relative;
+  }
+
+  /* Feature Dashboard Image Container - Visible top border */
+  .feature-dashboard-container {
+    border-top: 8px solid #FFFFFF !important;
+    border-top-width: 8px !important;
+    border-top-color: #FFFFFF !important;
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Add a bright white glow effect above the border for maximum visibility */
+  .feature-dashboard-container::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: #FFFFFF !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
+    z-index: 11;
+  }
 }

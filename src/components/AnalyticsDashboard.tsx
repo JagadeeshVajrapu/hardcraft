@@ -178,7 +178,7 @@ const AnalyticsDashboard = () => {
           <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent sm:text-7xl">
             Intelligence Unleashed
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed">
             Transform raw data into strategic advantage with powerful analytics
             that drive smarter decisions and faster innovation.
           </p>
@@ -206,7 +206,7 @@ const AnalyticsDashboard = () => {
                   <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent sm:text-4xl">
                     {section.title}
                   </h2>
-                  <p className="text-md text-muted-foreground leading-relaxed">
+                  <p className="text-md text-foreground/90 leading-relaxed">
                     {section.subtitle}
                   </p>
                 </div>
@@ -219,9 +219,9 @@ const AnalyticsDashboard = () => {
                     return (
                       <Card
                         key={index}
-                        className={`bg-card/30 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all duration-300 cursor-pointer group ${
+                        className={`bg-card border-border hover:border-primary/50 transition-all duration-300 cursor-pointer group ${
                           isExpanded
-                            ? "border-primary/50 shadow-lg shadow-primary/10"
+                            ? "border-primary shadow-lg shadow-primary/10"
                             : ""
                         }`}
                         onClick={() => toggleFeature(section.id, index)}
@@ -229,17 +229,17 @@ const AnalyticsDashboard = () => {
                         <CardContent className="p-6">
                           <div className="flex items-start gap-4">
                             <div
-                              className="p-3 rounded-xl bg-white/10 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center"
+                              className="p-3 rounded-xl bg-primary/20 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center"
                             >
-                              <IconComponent className="h-6 w-6 text-white" />
+                              <IconComponent className="h-6 w-6 text-primary" />
                             </div>
                             <div className="flex-1">
                               <div className="flex items-center justify-between">
-                                <h4 className="text-lg font-semibold group-hover:text-primary transition-colors duration-300">
+                                <h4 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                                   {feature.title}
                                 </h4>
                                 <ChevronRight
-                                  className={`h-5 w-5 text-muted-foreground transition-transform duration-300 ${
+                                  className={`h-5 w-5 text-foreground/70 transition-transform duration-300 ${
                                     isExpanded ? "rotate-90" : ""
                                   }`}
                                 />
@@ -247,12 +247,12 @@ const AnalyticsDashboard = () => {
 
                               {isExpanded && (
                                 <div className="mt-4 space-y-3 animate-in slide-in-from-top-2 duration-300">
-                                  <p className="text-muted-foreground text-sm leading-relaxed">
+                                  <p className="text-foreground/90 text-sm leading-relaxed">
                                     {feature.description}
                                   </p>
                                   <a
                                     href="#"
-                                    className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors duration-300"
+                                    className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/90 transition-colors duration-300"
                                   >
                                     Learn more →
                                   </a>
@@ -277,9 +277,9 @@ const AnalyticsDashboard = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
               >
-                <Card className="bg-gradient-to-br from-primary/5 via-card/50 to-accent/5 backdrop-blur-sm border-border/50 shadow-elevated overflow-hidden">
+                <Card className="bg-card border-2 border-border shadow-elevated overflow-hidden feature-dashboard-card">
                   <CardContent className="p-0">
-                    <div className="aspect-[4/3] relative overflow-hidden">
+                    <div className="aspect-[4/3] relative overflow-hidden feature-dashboard-container">
                       <motion.img
                         src={
                           section.features[
@@ -289,8 +289,8 @@ const AnalyticsDashboard = () => {
                           ].image
                         }
                         alt={section.title}
-                        className="w-full h-full object-cover"
-                        initial={{ opacity: 0, y: 40 }}
+                        className="w-full h-full object-cover feature-dashboard-image"
+                        initial={{ opacity: 1, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.7, ease: "easeOut" }}
