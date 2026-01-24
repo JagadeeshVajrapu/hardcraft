@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import toolImage from "@/assets/hero-image2.png";
@@ -7,15 +7,54 @@ import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const navigate = useNavigate();
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [isWaitlistDialogOpen, setIsWaitlistDialogOpen] = useState(false);
+
+  const rotatingTexts = [
+    "Made Simple",
+    "Streamline Management",
+    "Procurement",
+    "Compliance",
+  ];
+
+  const RotatingText: React.FC = () => (
+    <div className="relative h-[90px] overflow-hidden">
+      <div
+        className="flex flex-col transition-transform duration-500 ease-in-out"
+        style={{
+          transform: `translateY(-${currentTextIndex * 80}px)`,
+        }}
+      >
+        {rotatingTexts.map((text, index) => (
+          <div
+            key={index}
+            className="h-20 flex items-center justify-center text-foreground"
+          >
+            {text}
+          </div>
+        ))}
+        <div className="h-20 flex items-center justify-center text-foreground">
+          {rotatingTexts[0]}
+        </div>
+      </div>
+    </div>
+  );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % rotatingTexts.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleWaitlistSubmit = async (formData: WaitlistFormData) => {
     try {
-      console.log("Waitlist form submitted:", formData);
+    console.log("Waitlist form submitted:", formData);
       // Here you can add API call to submit the form data
       // await submitWaitlistForm(formData);
-
-      // Close the dialog after successful submission`
+      
+      // Close the dialog after successful submission
       setIsWaitlistDialogOpen(false);
     } catch (error) {
       console.error("Error submitting waitlist form:", error);
@@ -26,7 +65,7 @@ const Hero = () => {
   // Generate small white dots that rotate around themselves
   const dots = useMemo(() => {
     const dotArray = [];
-
+    
     for (let i = 0; i < 200; i++) {
       dotArray.push({
         id: i,
@@ -43,9 +82,9 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center" style={{ backgroundColor: '#000000', overflow: 'visible', position: 'relative', zIndex: 1 }}>
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
       {/* Animated Background */}
-      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1, overflow: "visible", backgroundColor: 'transparent', position: 'absolute' }}>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Orbital field so dots drift in a subtle circular motion */}
         <motion.div
           className="absolute inset-0"
@@ -78,26 +117,93 @@ const Hero = () => {
             />
           ))}
         </motion.div>
+
+        {/* Large Glowing Purple-Pink Blob - Main Shape */}
+        <motion.div
+          className="absolute"
+          style={{
+            top: "5%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "500px",
+            height: "500px",
+            background: "radial-gradient(circle at center, rgba(139, 92, 246, 0.5) 0%, rgba(236, 72, 153, 0.4) 20%, rgba(168, 85, 247, 0.25) 40%, rgba(236, 72, 153, 0.15) 55%, rgba(168, 85, 247, 0.08) 70%, transparent 85%)",
+            borderRadius: "50%",
+            filter: "blur(80px)",
+            opacity: 0.9,
+          }}
+          animate={{
+            scale: [1, 1.08, 1],
+            opacity: [0.9, 1, 0.9],
+            x: ["-50%", "-49%", "-50%"],
+            y: ["0%", "-1%", "0%"],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        
+        {/* Secondary blob layer for depth and softness */}
+        <motion.div
+          className="absolute"
+          style={{
+            top: "8%",
+            left: "48%",
+            width: "400px",
+            height: "400px",
+            background: "radial-gradient(circle at center, rgba(236, 72, 153, 0.35) 0%, rgba(168, 85, 247, 0.3) 25%, rgba(236, 72, 153, 0.2) 45%, rgba(168, 85, 247, 0.1) 60%, transparent 80%)",
+            borderRadius: "50%",
+            filter: "blur(70px)",
+            opacity: 0.75,
+          }}
+          animate={{
+            scale: [1, 1.12, 1],
+            opacity: [0.75, 0.9, 0.75],
+            x: ["-50%", "-48%", "-50%"],
+            y: ["0%", "2%", "0%"],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
+        />
+        
+        {/* Tertiary subtle blob for extra glow */}
+        <motion.div
+          className="absolute"
+          style={{
+            top: "12%",
+            left: "52%",
+            width: "350px",
+            height: "350px",
+            background: "radial-gradient(circle at center, rgba(168, 85, 247, 0.25) 0%, rgba(236, 72, 153, 0.2) 35%, rgba(168, 85, 247, 0.12) 55%, transparent 75%)",
+            borderRadius: "50%",
+            filter: "blur(60px)",
+            opacity: 0.6,
+          }}
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.6, 0.75, 0.6],
+            x: ["-50%", "-51%", "-50%"],
+            y: ["0%", "-1.5%", "0%"],
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 4,
+          }}
+        />
       </div>
-      
-      {/* Animation Layer - This allows animations to extend across entire hero section */}
-      {/* Add any animations here (z-index: 15) - they will be visible above text, buttons, and below the image */}
-      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 15, overflow: "visible" }}>
-        {/* 
-          Example: Add animations here that should be visible across the entire hero section
-          - Text background animations
-          - Floating elements
-          - Decorative circles or shapes
-          - Any content that needs to extend above and below the image
-        */}
-      </div>
-      
       {/* Content */}
-      <div className="container relative z-30 mx-auto px-4 text-center pointer-events-auto" style={{ backgroundColor: 'transparent', border: 'none', outline: 'none', boxShadow: 'none', position: 'relative', overflow: 'visible' }}>
-        <div className="mx-auto max-w-7xl pt-24 pb-0 space-y-8" style={{ backgroundColor: 'transparent', border: 'none', outline: 'none', boxShadow: 'none', position: 'relative', marginBottom: '0', overflow: 'visible' }}>
+      <div className="container relative z-10 mx-auto px-4 text-center pointer-events-auto">
+        <div className="mx-auto max-w-7xl pt-24 pb-8 space-y-8">
           <motion.div
-            className="space-y-4 relative z-30"
-            style={{ zIndex: 30, backgroundColor: 'transparent', border: 'none', outline: 'none', boxShadow: 'none', position: 'relative', overflow: 'visible' }}
+            className="space-y-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -111,40 +217,28 @@ const Hero = () => {
             </div>
 
             {/* Main Heading */}
-            <h1
-              className="text-4xl font-semibold tracking-[-0.02em] leading-[1.2] sm:text-5xl lg:text-6xl text-white text-center relative z-30"
+            <h1 
+              className="text-4xl font-semibold tracking-[-0.02em] leading-[1.2] sm:text-5xl lg:text-6xl text-white text-center"
               style={{
                 color: '#FFFFFF',
                 fontFamily: 'Inter, SF Pro Display, Helvetica Neue, sans-serif',
-                fontWeight: 700,
+                fontWeight: 600,
                 letterSpacing: '-0.02em',
                 lineHeight: 1.2,
-                textShadow: '0 2px 16px rgba(0, 0, 0, 0.8), 0 4px 32px rgba(0, 0, 0, 0.6), 0 8px 48px rgba(0, 0, 0, 0.4)',
-                zIndex: 30,
-                backgroundColor: 'transparent',
-                position: 'relative',
-                WebkitFontSmoothing: 'antialiased',
-                MozOsxFontSmoothing: 'grayscale',
               }}
             >
-              Hardware Development
+              Hardware Development 
             </h1>
 
             {/* Subheading */}
-            <p
-              className="mx-auto max-w-[720px] text-lg sm:text-xl text-center relative z-20"
+            <p 
+              className="mx-auto max-w-[720px] text-lg sm:text-xl text-center"
               style={{
-                color: '#F5F5F5',
+                color: '#A1A1A1',
                 fontFamily: 'Inter, SF Pro Display, Helvetica Neue, sans-serif',
                 fontSize: '18px',
                 fontWeight: 400,
-                lineHeight: 1.7,
-                textShadow: '0 1px 6px rgba(0, 0, 0, 0.5), 0 2px 12px rgba(0, 0, 0, 0.3)',
-                zIndex: 20,
-                backgroundColor: 'transparent',
-                WebkitFontSmoothing: 'antialiased',
-                MozOsxFontSmoothing: 'grayscale',
-                letterSpacing: '0.01em',
+                lineHeight: 1.6,
               }}
             >
               End-to-end product lifecycle management for hardware companies.
@@ -154,7 +248,6 @@ const Hero = () => {
           {/* Buttons */}
           <motion.div
             className="flex flex-col gap-4 sm:flex-row sm:justify-center relative z-20"
-            style={{ backgroundColor: 'transparent', border: 'none', outline: 'none', overflow: 'visible' }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -187,24 +280,17 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Image Section */}
+        {/* Image Section (UNCHANGED) */}
         <motion.div
           className="isometric-container w-full"
           style={{
-            marginTop: "0px",
-            marginBottom: "0px",
-            marginLeft: "-1rem",
-            marginRight: "-1rem",
-            padding: "0",
-            width: "calc(100% + 2rem)",
+            perspective: "2000px",
+            perspectiveOrigin: "center center",
+            marginTop: "-80px",
+            marginBottom: "40px",
             display: "flex",
             justifyContent: "center",
             overflow: "visible",
-            position: "relative",
-            backgroundColor: "transparent",
-            border: "none",
-            outline: "none",
-            zIndex: 10,
           }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

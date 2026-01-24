@@ -68,16 +68,14 @@ const ProblemSolution = () => {
 
   return (
     <motion.section
-      className="py-24 max-w-8xl sm:px-12 px-2 mx-auto bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden"
+      className="pt-0 pb-24 max-w-8xl sm:px-12 px-2 mx-auto relative"
+      style={{ backgroundColor: '#000000', overflow: 'visible', position: 'relative', zIndex: 0, marginTop: '0', paddingTop: '0' }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-      <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl"></div>
+      {/* Background decorative elements - removed for seamless black background merge */}
 
       <div className="container mx-auto relative z-10">
         {/* Header */}

@@ -87,74 +87,78 @@
     background-size: 20px 20px;
   }
 
-  /* Isometric 3D Effect with Smooth Fade-out */
+  /* Hero Image - Display as-is from assets folder with seamless fade merge */
   .isometric-container {
-    transform-style: preserve-3d;
+    position: relative;
+    background: transparent;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    /* Remove watermark artifacts */
+    clip-path: inset(0);
+    -webkit-clip-path: inset(0);
+    overflow: visible;
   }
 
   .isometric-image {
     width: 100%;
     max-width: 1200px;
-    /* Refined isometric angle with zoom */
-    transform: rotateX(58deg) rotateZ(-25deg) translateY(-20px) scale(1.25);
-    transform-origin: center center;
-    border-radius: 0;
-    /* No border or frame */
+    display: block;
     border: none;
     outline: none;
-    /* Enhanced shadow for depth */
-    box-shadow: 0 120px 220px rgba(0, 0, 0, 0.9),
-      0 60px 120px rgba(0, 0, 0, 0.7),
-      0 20px 40px rgba(0, 0, 0, 0.5);
-    transition: none;
-    transform-style: preserve-3d;
-    display: block;
-    /* Reference image fade-out: gradual edge fade, content fades naturally not cut */
-    /* Image content gradually fades at edges matching reference */
-    mask-image: radial-gradient(
-      ellipse 90% 80% at center,
-      black 65%,
-      black 75%,
-      rgba(0, 0, 0, 0.99) 80%,
-      rgba(0, 0, 0, 0.96) 84%,
-      rgba(0, 0, 0, 0.91) 87%,
-      rgba(0, 0, 0, 0.84) 89.5%,
-      rgba(0, 0, 0, 0.74) 91.5%,
-      rgba(0, 0, 0, 0.62) 93.5%,
-      rgba(0, 0, 0, 0.48) 95%,
-      rgba(0, 0, 0, 0.35) 96.2%,
-      rgba(0, 0, 0, 0.24) 97.2%,
-      rgba(0, 0, 0, 0.14) 98%,
-      rgba(0, 0, 0, 0.07) 98.7%,
-      rgba(0, 0, 0, 0.02) 99.3%,
-      transparent 100%
-    );
-    
-    -webkit-mask-image: radial-gradient(
-      ellipse 90% 80% at center,
-      black 65%,
-      black 75%,
-      rgba(0, 0, 0, 0.99) 80%,
-      rgba(0, 0, 0, 0.96) 84%,
-      rgba(0, 0, 0, 0.91) 87%,
-      rgba(0, 0, 0, 0.84) 89.5%,
-      rgba(0, 0, 0, 0.74) 91.5%,
-      rgba(0, 0, 0, 0.62) 93.5%,
-      rgba(0, 0, 0, 0.48) 95%,
-      rgba(0, 0, 0, 0.35) 96.2%,
-      rgba(0, 0, 0, 0.24) 97.2%,
-      rgba(0, 0, 0, 0.14) 98%,
-      rgba(0, 0, 0, 0.07) 98.7%,
-      rgba(0, 0, 0, 0.02) 99.3%,
-      transparent 100%
-    );
-    /* Ensure smooth rendering */
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    margin: 0;
+    padding: 0;
     image-rendering: auto;
+    background: transparent;
+    
+    /* Remove watermark artifacts - clean edges */
+    clip-path: inset(0);
+    -webkit-clip-path: inset(0);
+    
+    /* Premium text clarity - sharp, readable, high contrast */
+    filter: contrast(1.4) brightness(1.25) saturate(1.1);
+    -webkit-filter: contrast(1.4) brightness(1.25) saturate(1.1);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    
+    /* Intentional cinematic fade - strong only at extreme edges, preserve center/top */
+    /* Center and top areas remain fully visible, fade only at bottom and sides */
+    -webkit-mask-image: 
+      radial-gradient(
+        ellipse 70% 80% at center top,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 30%,
+        rgba(0, 0, 0, 0.98) 40%,
+        rgba(0, 0, 0, 0.95) 50%,
+        rgba(0, 0, 0, 0.85) 60%,
+        rgba(0, 0, 0, 0.65) 70%,
+        rgba(0, 0, 0, 0.4) 80%,
+        rgba(0, 0, 0, 0.15) 90%,
+        transparent 100%
+    );
+    mask-image: 
+      radial-gradient(
+        ellipse 70% 80% at center top,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 30%,
+        rgba(0, 0, 0, 0.98) 40%,
+        rgba(0, 0, 0, 0.95) 50%,
+        rgba(0, 0, 0, 0.85) 60%,
+        rgba(0, 0, 0, 0.65) 70%,
+        rgba(0, 0, 0, 0.4) 80%,
+        rgba(0, 0, 0, 0.15) 90%,
+        transparent 100%
+      );
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
   }
 
-  /* ===== FLOATING SPACE GLOW ===== */
+  /* Floating glow */
   .isometric-container::before {
     content: "";
     position: absolute;
@@ -163,20 +167,18 @@
     transform: translateX(-50%);
     width: 92%;
     height: 65%;
-
     background: radial-gradient(
       ellipse at center,
       hsla(var(--primary), 0.12) 0%,
       hsla(var(--accent), 0.08) 38%,
       transparent 72%
     );
-
     filter: blur(120px);
     pointer-events: none;
     z-index: -1;
   }
 
-  /* New Badge Pill Style */
+  /* Badge styles */
   .new-badge-pill {
     display: inline-flex;
     align-items: center;
@@ -185,8 +187,6 @@
     padding: 4px 10px;
     box-shadow: 0 0 24px rgba(168, 85, 247, 0.35);
     gap: 4px;
-    height: auto;
-    width: auto;
   }
 
   .new-badge-label {
@@ -196,24 +196,11 @@
     border-radius: 9999px;
     font-size: 0.875rem;
     font-weight: 600;
-    white-space: nowrap;
-    line-height: 1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
   }
 
   .new-badge-text {
     color: #FFFFFF;
-    padding: 0;
     font-size: 0.875rem;
     font-weight: 500;
-    white-space: nowrap;
-    line-height: 1;
-    display: inline-flex;
-    align-items: center;
-    margin: 0;
   }
 }
-
