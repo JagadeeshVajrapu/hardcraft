@@ -116,84 +116,28 @@
     clip-path: inset(0);
     -webkit-clip-path: inset(0);
     
-    /* Maximum text clarity - sharp, crisp, high contrast, no transparency */
-    /* Strong contrast and brightness to make every character clearly visible */
-    filter: contrast(2.0) brightness(1.5) saturate(1.3) drop-shadow(0 0 1px rgba(255, 255, 255, 0.1));
-    -webkit-filter: contrast(2.0) brightness(1.5) saturate(1.3) drop-shadow(0 0 1px rgba(255, 255, 255, 0.1));
-    
-    /* Sharp text rendering - optimize for clarity and zoom */
-    /* Use high-quality rendering that maintains clarity when zoomed */
-    /* crisp-edges works best for text clarity at all zoom levels */
+    /* Enhanced text clarity - sharp, readable, high contrast */
+    /* Increased contrast and brightness to make text clearly visible */
+    filter: contrast(1.6) brightness(1.35) saturate(1.2);
+    -webkit-filter: contrast(1.6) brightness(1.35) saturate(1.2);
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-    -ms-interpolation-mode: bicubic;
-    /* Force high-quality scaling for zoom */
-    -webkit-image-rendering: -webkit-optimize-contrast;
-    -moz-image-rendering: crisp-edges;
     
-    /* Remove ALL mask-image effects - ensure full visibility */
-    /* No transparency, no fade, everything fully visible */
-    -webkit-mask-image: none !important;
-    mask-image: none !important;
-    -webkit-mask-size: none !important;
-    mask-size: none !important;
-    -webkit-mask-position: none !important;
-    mask-position: none !important;
-    -webkit-mask-repeat: no-repeat !important;
-    mask-repeat: no-repeat !important;
+    /* Remove mask-image to ensure full visibility - no transparency effects */
+    /* All text should be clearly visible without any fade */
+    -webkit-mask-image: none;
+    mask-image: none;
+    -webkit-mask-size: none;
+    mask-size: none;
+    -webkit-mask-position: none;
+    mask-position: none;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
     
-    /* Ensure full opacity - absolutely no transparency */
+    /* Ensure full opacity - no transparency */
     opacity: 1 !important;
-    
-    /* Additional clarity enhancements for zoom scenarios */
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    will-change: transform;
-    
-    /* Prevent any browser optimizations that might reduce quality */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    
-    /* Maintain quality when zoomed - use hardware acceleration */
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    
-    /* Force hardware acceleration for better rendering quality */
-    -webkit-perspective: 1000;
-    perspective: 1000;
-    
-    /* Ensure image maintains quality at all zoom levels */
-    min-width: 100%;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-    
-    /* Prevent quality loss when zoomed - maintain sharpness */
-    -webkit-transform: translateZ(0) scale(1);
-    transform: translateZ(0) scale(1);
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-  }
-  
-  /* Additional rules for zoom scenarios - maintain clarity */
-  @media (min-resolution: 1.5dppx) {
-    .isometric-image {
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-      -ms-interpolation-mode: bicubic;
-    }
-  }
-  
-  /* Ensure clarity at all zoom levels */
-  .isometric-image:hover,
-  .isometric-image:focus,
-  .isometric-image:active {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-    filter: contrast(2.0) brightness(1.5) saturate(1.3) !important;
-    -webkit-filter: contrast(2.0) brightness(1.5) saturate(1.3) !important;
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
   }
 
   /* Floating glow */
