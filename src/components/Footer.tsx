@@ -126,12 +126,12 @@ const Footer = () => {
             </h4>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
               <li>
-                <a className="hover:text-foreground" href="#">
+                <a className="hover:text-foreground" href="/docs">
                   Docs
                 </a>
               </li>
               <li>
-                <a className="hover:text-foreground" href="#">
+                <a className="hover:text-foreground" href="/docs">
                   Guides
                 </a>
               </li>
@@ -141,7 +141,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a className="hover:text-foreground" href="#">
+                <a className="hover:text-foreground" href="/status">
                   Status
                 </a>
               </li>
@@ -154,8 +154,9 @@ const Footer = () => {
           <div className="md:col-span-2">
             <h5 className="text-base font-semibold">Join our waitlist</h5>
             <p className="mt-1 text-sm text-muted-foreground">
-              Be the first to get access when we launch. No spam, unsubscribe
-              anytime.
+              Get early access, product updates, and launch perks.
+              <br />
+              No spam. Unsubscribe anytime.
             </p>
           </div>
           <div className="flex gap-3 justify-start md:justify-end">
