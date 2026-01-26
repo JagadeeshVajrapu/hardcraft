@@ -214,6 +214,20 @@ const Hero = () => {
             src={toolImage}
             alt="Hardware development dashboard"
             className="isometric-image"
+            style={{
+              opacity: 1,
+              filter: 'contrast(2.0) brightness(1.5) saturate(1.3)',
+              WebkitFilter: 'contrast(2.0) brightness(1.5) saturate(1.3)',
+              imageRendering: 'crisp-edges',
+              WebkitImageRendering: '-webkit-optimize-contrast',
+              MozImageRendering: 'crisp-edges',
+              WebkitMaskImage: 'none',
+              maskImage: 'none',
+              transform: 'translateZ(0)',
+              WebkitTransform: 'translateZ(0)',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden',
+            }}
           />
         </motion.div>
       </div>
