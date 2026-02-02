@@ -40,6 +40,16 @@ const Navigation = () => {
               <Link to="/about" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
                 About
               </Link>
+              <Link 
+                to="/customers" 
+                className="text-sm font-medium text-gray-400 hover:text-white transition-colors"
+                onClick={() => {
+                  // Scroll to top when clicking Customers link
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
+                Customers
+              </Link>
             </div>
           </div>
 
