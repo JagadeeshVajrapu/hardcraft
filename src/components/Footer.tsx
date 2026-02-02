@@ -108,7 +108,7 @@ const Footer = () => {
               </li>
               <li>
                 <a className="hover:text-foreground" href="/customers">
-                  Customers
+                  Who use it
                 </a>
               </li>
               <li>

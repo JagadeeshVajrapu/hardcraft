@@ -44,11 +44,11 @@ const Navigation = () => {
                 to="/customers" 
                 className="text-sm font-medium text-gray-400 hover:text-white transition-colors"
                 onClick={() => {
-                  // Scroll to top when clicking Customers link
+                  // Scroll to top when clicking Who use it link
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
               >
-                Customers
+                Who use it
               </Link>
             </div>
           </div>
