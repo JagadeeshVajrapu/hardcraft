@@ -279,7 +279,7 @@ const AnalyticsDashboard = () => {
               >
                 <Card className="bg-card border-2 border-border shadow-elevated overflow-hidden feature-dashboard-card">
                   <CardContent className="p-0">
-                    <div className="aspect-[4/3] relative overflow-hidden feature-dashboard-container">
+                    <div className="aspect-[4/3] relative overflow-hidden feature-dashboard-container bg-white">
                       <motion.img
                         src={
                           section.features[
@@ -289,7 +289,15 @@ const AnalyticsDashboard = () => {
                           ].image
                         }
                         alt={section.title}
-                        className="w-full h-full object-cover feature-dashboard-image"
+                        className="w-full h-full object-contain feature-dashboard-image"
+                        style={{
+                          imageRendering: 'auto',
+                          WebkitImageRendering: 'auto',
+                          filter: 'none',
+                          contrast: '1',
+                          brightness: '1',
+                          opacity: '1',
+                        }}
                         initial={{ opacity: 1, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
